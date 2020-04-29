@@ -1,15 +1,22 @@
 import React from 'react';
 import { gql } from "apollo-boost";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from '../Styles/GlobalStyles';
 import Router from './Router';
 import Theme from '../Styles/Theme';
 import { useQuery } from 'react-apollo-hooks';
+import Footer from './Footer';
 
 const QUERY = gql`
   {
     isLoggedIn @client    
   }
+`;
+
+const Wrapper = styled.div`
+  margin: 0 auto;
+  max-width: 935px;
+  width: 100%;
 `;
 /*상단에 @client 쓴 이유
 GraphQL 백엔드 서버에서 가져올 데이터가 아니라는 것을 @client라고 써서 알려주는 것.
@@ -26,10 +33,11 @@ export default () => {
 
   return (
     <ThemeProvider theme={Theme}>
-    <>
+    <Wrapper>
       <GlobalStyles />
       <Router isLoggedIn={isLoggedIn} />
-    </>
+      <Footer />
+    </Wrapper>
   </ThemeProvider>
   )
 };
