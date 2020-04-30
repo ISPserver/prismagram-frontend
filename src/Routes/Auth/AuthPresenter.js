@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
-import Input from "../Components/input";
-import Button from "../Components/Button";
-import useInput from "../Hooks/useInput";
+import Input from "../../Components/input";
+import Button from "../../Components/Button";
+
 
 const Wrapper = styled.div`
     min-height: 80vh;
@@ -47,15 +47,15 @@ const Form = styled(Box)`
     }
 `;
 
-export default () => {
-    const [action, setAction] = useState("logIn");
-    const username = useInput("");
-    const password = useInput("");
-    const firstName = useInput("");
-    const lastName = useInput("");
-    const email = useInput("");
-
-    return (
+export default ({
+    action,
+    username,
+    password,
+    firstName,
+    lastName,
+    email,
+    setAction
+}) => (
         <Wrapper>
             <Form>
                 {action === "logIn" ? (
@@ -90,4 +90,3 @@ export default () => {
         </StateChanger> 
     </Wrapper>
     );
-};
