@@ -80,7 +80,9 @@ export default ({
                     <Button text={"Confirm"} />
                 </form>
                 )}
-            </Form>
+        </Form>
+        
+        {action !== "confirm" && (
         <StateChanger > 
             {action === "logIn" ? (
                 <>
@@ -94,5 +96,6 @@ export default ({
                 </>
             )} 
         </StateChanger> 
+        )}
     </Wrapper>
     );

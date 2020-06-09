@@ -3,8 +3,11 @@ export const defaults = {
     isLoggedIn: Boolean(localStorage.getItem("token")) || false
 };
 
+
+// logUserIn 실행 -> token을 setItem -> writeData -> 
+// data의 isLoggedIn이 true면 OK
 export const resolvers = {
-    Mutation: {
+    Mutation: { 
         logUserIn: (_, { token }, { cache }) => {
             localStorage.setItem("token", token);
             cache.writeData({
