@@ -1,4 +1,5 @@
 import React from "react";
+import {Helmet} from "react-helmet";
 import styled from "styled-components";
 import Input from "../../Components/input";
 import Button from "../../Components/Button";
@@ -59,13 +60,22 @@ export default ({
 }) => (
         <Wrapper>
             <Form>
-                {action === "logIn" && (
+            {action === "logIn" && (
+            <>
+                <Helmet>
+                    <title>Log In | Prismagram</title>
+                </Helmet>
                 <form onSubmit={onSubmit}>
                     <Input placeholder={"Email"} {...email} type="email" />
                     <Button text={"Log in"} />
-                </form> 
+                </form>
+            </> 
             )}
             {action === "signUp" && (
+                <>
+                <Helmet>
+                    <title>Sing Up | Prismagram</title>
+                </Helmet>
                 <form onSubmit={onSubmit}>
                     <Input placeholder={"First name"} {...firstName}/>
                     <Input placeholder={"Last name"} {...lastName}/>
@@ -73,12 +83,18 @@ export default ({
                     <Input placeholder={"Username"} {...username}/>
                     <Button text={"Sign up"} />
                 </form>
+                </>
             )}
             {action === "confirm" && (
+                <>
+                <Helmet>
+                    <title>Confirm Secret | Prismagram</title>
+                </Helmet>
                 <form onSubmit={onSubmit}>
                     <Input placeholder="Paste Your Secret" required {...secret} />
                     <Button text={"Confirm"} />
                 </form>
+                </>
                 )}
         </Form>
         
