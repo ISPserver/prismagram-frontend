@@ -72,7 +72,9 @@ export default withRouter(({history}) => {
     
     const search = useInput("");
     const { data, loading } = useQuery(ME);
+    // graphql server로 부터 me 값을 받기 전까지 렌더링 하지 않기위해
     if(loading) return "";    
+    const { me } = data;    
     const onSearchSubmit = (e) => {
         e.preventDefault();
         history.push(`/search?term=${search.value}`)
@@ -102,7 +104,7 @@ export default withRouter(({history}) => {
                         <User />
                     </HeaderLink>
                 ) : (
-                    <HeaderLink to={data.me.username}>
+                    <HeaderLink to={me.username}>
                         <User />
                     </HeaderLink>
                 )}
