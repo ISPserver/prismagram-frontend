@@ -9,7 +9,14 @@ const Wrapper = styled.div`
     height: 50vh;   
 `;
 
-const Section = styled.div``;
+const Section = styled.div`
+    margin-bottom: 50px;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 160px;
+    grid-auto-rows: 160px;
+`;
 
 const SearchPresenter = ({ searchTerm, loading, data}) => {
     if(searchTerm === "undefined"){
@@ -32,10 +39,11 @@ const SearchPresenter = ({ searchTerm, loading, data}) => {
                     <FatText text="No Users Found" />
                 ) : (
                     data.searchUser.map(user => (
-                        <UserCard 
+                        <UserCard
+                            key={user.id} 
                             username={user.username}
                             isFollowing={user.isFollowing}
-                            url={user.url}
+                            url={user.avatar}
                             isSelf={user.isSelf}
                         />
                     ))
