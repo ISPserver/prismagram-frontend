@@ -15,10 +15,10 @@ const PostContainer = ({
     comments,
     createdAt,
     caption,
-    location 
+    location
 }) => {
     const [isLikedS, setIsLiked] = useState(isLiked);
-    const [likeCountS, setLikeCount] = useState(likeCount);
+    const [likeCountS, setLikeCount] = useState(likeCount);    
     const [currentItem, setCurrentItem] = useState(0);
     const [selfComments, setSelfComments] = useState([]);
     const comment = useInput("");    
@@ -58,7 +58,7 @@ const PostContainer = ({
                 const {
                     data: { addComment }
                 } = await addCommentMutation();
-                setSelfComments([...selfComments, addComment]);
+                setSelfComments([...selfComments, addComment]);                
                 comment.setValue("");
             } catch {
                 toast.error("Can't send comment");
@@ -82,7 +82,8 @@ const PostContainer = ({
         currentItem={currentItem}
         toggleLike={toggleLike}
         onKeyPress={onKeyPress}
-        selfComments={selfComments}
+        selfComments={selfComments}        
+
     />
     );
 };

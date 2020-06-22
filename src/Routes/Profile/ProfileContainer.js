@@ -19,7 +19,8 @@ const GET_USER = gql`
             postsCount
             posts  {
                 id
-                files {
+                files
+                 {
                     url
                 }
                 likeCount

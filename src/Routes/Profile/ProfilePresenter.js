@@ -8,6 +8,7 @@ import FollowButton from "../../Components/FollowButton";
 import SquarePost from "../../Components/SquarePost";
 import Button from "../../Components/Button";
 
+
 const Wrapper = styled.div`
     min-height: 100vh;
 `;
@@ -26,13 +27,14 @@ const HeaderColumn = styled.div``;
 
 const UsernameRow = styled.div`
     display: flex;
-    align-items: center; 
+    align-items: center;
+    width: 200px;     
     
 `;
 
 const Username = styled.span`
     font-size: 26px;   
-    display: block;    
+    display: block;        
 `;
 
 const Counts = styled.ul`
@@ -64,6 +66,7 @@ const Posts = styled.div`
     column-gap: 10%;
 `;
 
+
 export default ({loading, data, logOut}) => {
 if(loading === true) {
     return (
@@ -90,7 +93,7 @@ if(loading === true) {
     return (
         <Wrapper>
         <Helmet>
-            <title>{username} | Prismagram </title>
+            <title>{username} | WAF </title>
         </Helmet>
             <Header>
                 <HeaderColumn>
@@ -119,18 +122,18 @@ if(loading === true) {
                     <FullName text={fullName} />
                     <Bio>{bio}</Bio>
                 </HeaderColumn>                
-            </Header>
-            <Posts>
+            </Header>            
+            <Posts>                
                 {posts && 
-                    posts.map(post => (
-                     <SquarePost 
+                    posts.map(post => (                    
+                     <SquarePost
                      key={post.id}
                      likeCount={post.likeCount} 
                      commentCount={post.commentCount} 
-                     file={post.files[0]}
-                 />
-                ))}
-            </Posts>
+                     file={post.files[0]}                                                               
+                 /> 
+                ))}                
+            </Posts>            
         </Wrapper>
     );    
     }

@@ -123,9 +123,9 @@ export default ({
     onKeyPress,
     comments,
     selfComments,
-    caption
+    caption    
 }) => (
-    <Post>
+    <Post key={username.id}>
         <Header>
             <Avatar size="sm" url={avatar} />
             <UserColumn>
@@ -148,7 +148,7 @@ export default ({
                     <CommentIcon />
                 </Button>
             </Buttons>
-            <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`} />
+            <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`} />            
             <Caption>
                 <FatText text={username} /> {caption}
             </Caption>

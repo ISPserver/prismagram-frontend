@@ -26,7 +26,7 @@ const PostSection = styled(Section)`
 `;
 
 const SearchPresenter = ({ searchTerm, loading, data}) => {
-    if(searchTerm === "undefined"){
+    if(searchTerm === undefined){
         return (
         <Wrapper>
             <FatText text={"Search for Something"} />
